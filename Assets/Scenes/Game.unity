@@ -600,12 +600,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 0}
   dialogue:
-    _name: Robert Paulson
     sentences:
-    - Hey, this is an example of dialogue setup
-    - I did this following the Brackeys' tutorial on the matter
-    - Brackeys and Infaillible Code are very good content creator if you want to
-      learn Unity
+    - talker: Raoul
+      sentence: Hola !! Je suis le plus grand barde du monde !!!
+    - talker: "\xC9vy"
+      sentence: "Je fais p\xE9ter des soleils sur mon temps libre ..."
+    - talker: Mimolin
+      sentence: "Besoin d'un petit coup de serpill\xE8re ?"
 --- !u!114 &598989342
 MonoBehaviour:
   m_ObjectHideFlags: 0

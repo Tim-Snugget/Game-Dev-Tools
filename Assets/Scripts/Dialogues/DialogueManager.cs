@@ -37,7 +37,7 @@ public class DialogueManager : MonoBehaviour
     #endregion
     
     [SerializeField]
-    private Queue<string> sentences;
+    private Queue<Sentence> sentences;
     [Header("UIElements")]
     [SerializeField]
     private Text dialogueName;
@@ -49,7 +49,7 @@ public class DialogueManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sentences = new Queue<string>();
+        sentences = new Queue<Sentence>();
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -57,10 +57,9 @@ public class DialogueManager : MonoBehaviour
         dialogueBoxAnimator.SetBool("isOpen", true);
         sentences.Clear();
 
-        dialogueName.text = dialogue.name;
-        foreach (string sentence in dialogue.sentences) {
+        foreach (Sentence sentence in dialogue.sentences) {
             sentences.Enqueue(sentence);
-        }
+        } // needs clear?
         
         DisplayNextSentence();
     }
@@ -72,7 +71,11 @@ public class DialogueManager : MonoBehaviour
             return;
         }
         
-        string sentence = sentences.Dequeue();
+        // string sentence = sentences.Dequeue();
+        Sentence s = sentences.Dequeue();
+        string sentence = s.sentence;
+        
+        dialogueName.text = s.talker;
         // dialogueText.text = sentence;
 
         // StopCoroutine(TypeSentence(sentence));
