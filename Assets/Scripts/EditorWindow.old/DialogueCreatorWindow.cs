@@ -22,7 +22,7 @@ public class DialogueCreatorWindow : EditorWindow
             foreach (SentenceWindow sw in sentences) {
                 Sentence s = new Sentence();
                 s.sentence = sw.sentence;
-                s.talker = sw.character.ToString();
+                s.speaker = sw.character.ToString();
                 res.sentences.Add(s);
             }
             return res;

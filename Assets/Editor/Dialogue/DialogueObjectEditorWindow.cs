@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class TalkObjectEditorWindow : ExtendedTalkEditorWindow
+public class DialogueObjectEditorWindow : ExtendedDialogueEditorWindow
 {
-    public static void Open(Talk talkObject)
+    public static void Open(Dialogue DialogueObject)
     {
-        TalkObjectEditorWindow window = GetWindow<TalkObjectEditorWindow>("Talk Window Editor");
-        window.serializedObject = new SerializedObject(talkObject);
+        DialogueObjectEditorWindow window = GetWindow<DialogueObjectEditorWindow>("Dialogue Window Editor");
+        window.serializedObject = new SerializedObject(DialogueObject);
     }
 
     private void OnGUI()

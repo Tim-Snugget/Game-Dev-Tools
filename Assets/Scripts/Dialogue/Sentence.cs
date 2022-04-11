@@ -12,7 +12,7 @@ public class Sentence
         public int textSize = 14;
     }
     
-    public string talker;
+    public string speaker;
 
     [TextArea(3, 10)]
     public string sentence;

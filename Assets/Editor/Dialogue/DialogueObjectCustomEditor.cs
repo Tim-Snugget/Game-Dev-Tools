@@ -10,9 +10,9 @@ public class AssetHandler
     [OnOpenAsset()]
     public static bool OpenEditor(int instanceId, int line)
     {
-        Talk obj = EditorUtility.InstanceIDToObject(instanceId) as Talk;
+        Dialogue obj = EditorUtility.InstanceIDToObject(instanceId) as Dialogue;
         if (obj != null) {
-            TalkObjectEditorWindow.Open(obj);
+            DialogueObjectEditorWindow.Open(obj);
             return true;
         }
         return false;
@@ -20,15 +20,15 @@ public class AssetHandler
 }
 
 
-[CustomEditor(typeof(Talk))]
-public class TalkObjectCustomEditor : Editor
+[CustomEditor(typeof(Dialogue))]
+public class DialogueObjectCustomEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
         if (GUILayout.Button("Open Editor")) {
-            TalkObjectEditorWindow.Open((Talk)target);
+            DialogueObjectEditorWindow.Open((Dialogue)target);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class ExtendedTalkEditorWindow : EditorWindow
+public class ExtendedDialogueEditorWindow : EditorWindow
 {
     protected SerializedObject serializedObject;
     protected SerializedProperty currentProperty;

@@ -75,7 +75,7 @@ public class DialogueManager : MonoBehaviour
         Sentence s = sentences.Dequeue();
         string sentence = s.sentence;
         
-        dialogueName.text = s.talker;
+        dialogueName.text = s.speaker;
         // dialogueText.text = sentence;
 
         // StopCoroutine(TypeSentence(sentence));
