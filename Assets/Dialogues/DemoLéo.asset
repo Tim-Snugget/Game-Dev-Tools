@@ -25,17 +25,7 @@ MonoBehaviour:
       displaySpeed: 0
       textSize: 0
   - speaker: Maybe
-    sentence: Perhaps
-    extraOptions:
-      displaySpeed: 0
-      textSize: 0
-  - speaker: Maybe
-    sentence: Perhaps
-    extraOptions:
-      displaySpeed: 0
-      textSize: 0
-  - speaker: Maybe
-    sentence: Perhaps
+    sentence: Possibly
     extraOptions:
       displaySpeed: 0
       textSize: 0

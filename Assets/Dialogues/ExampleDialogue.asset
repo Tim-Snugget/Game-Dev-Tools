@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: ExampleDialogue
   m_EditorClassIdentifier: 
   resume: 
-  sentences: []
+  sentences:
+  - speaker: "\xC9vy"
+    sentence: "Bonjour, je suis une disciple de Luminis. Mon but est de d\xE9truire
+      toutes les \xE9toiles de l'univers afin de mettre fin \xE0 ce monde !"
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0

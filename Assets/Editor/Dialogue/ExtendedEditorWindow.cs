@@ -5,26 +5,13 @@ using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-public class ExtendedDialogueEditorWindow : EditorWindow
+public class ExtendedEditorWindow : EditorWindow
 {
     protected SerializedObject serializedObject;
     protected SerializedProperty currentProperty;
     
     protected string selectedPropertyPath;
     protected SerializedProperty selectedProperty;
-    
-    private ReorderableList list;
-
-    // private void OnEnable()
-    // {
-    //     list.onSelectCallback += SelectItemFromList;
-    // }
-
-    private void OnDisable()
-    {
-        if (list.onSelectCallback != null)
-            list.onSelectCallback -= SelectItemFromList;
-    }
 
     protected void DrawProperties(SerializedProperty prop, bool drawChildren)
     {
@@ -51,40 +38,7 @@ public class ExtendedDialogueEditorWindow : EditorWindow
         }
     }
 
-    protected void DrawCustomSidebar(SerializedObject obj)
-    {
-        list = new ReorderableList(serializedObject, serializedObject.FindProperty("sentences"),
-            true, true, true, true);
 
-        list.drawHeaderCallback = rect => EditorGUI.LabelField(rect, "Dialogue's order");
-        list.drawElementCallback = (rect, index, active, focused) =>
-        {
-            var element = list.serializedProperty.GetArrayElementAtIndex(index);
-            rect.y += 2;
-            EditorGUI.PropertyField(new Rect(rect.x, rect.y, 60, EditorGUIUtility.singleLineHeight),
-                element.FindPropertyRelative("Name"), GUIContent.none);
-        };
-        list.onSelectCallback += SelectItemFromList;
-
-        if (!string.IsNullOrEmpty(selectedPropertyPath))
-            selectedProperty = serializedObject.FindProperty(selectedPropertyPath);
-
-        list.DoLayoutList();
-        serializedObject.ApplyModifiedProperties();
-    }
-
-    private void SelectItemFromList(ReorderableList l)
-    {
-        Debug.Log("current property : " + currentProperty.displayName);
-        selectedPropertyPath = currentProperty.GetArrayElementAtIndex(l.index).propertyPath;
-
-        if (!string.IsNullOrEmpty(selectedPropertyPath))
-            selectedProperty = serializedObject.FindProperty(selectedPropertyPath);
-        Debug.Log("sPP : " + selectedPropertyPath + " | sP : " + selectedProperty);
-        Repaint();
-    }
-
-    // old way shown in the tutorial
     protected void DrawSidebar(SerializedProperty prop)
     {
         foreach (SerializedProperty p in prop) {
