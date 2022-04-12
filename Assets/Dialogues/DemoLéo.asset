@@ -13,4 +13,29 @@ MonoBehaviour:
   m_Name: "DemoL\xE9o"
   m_EditorClassIdentifier: 
   resume: 
-  sentences: []
+  sentences:
+  - speaker: Yes
+    sentence: No
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
+  - speaker: Maybe
+    sentence: Perhaps
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
+  - speaker: Maybe
+    sentence: Perhaps
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
+  - speaker: Maybe
+    sentence: Perhaps
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
+  - speaker: Maybe
+    sentence: Perhaps
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0

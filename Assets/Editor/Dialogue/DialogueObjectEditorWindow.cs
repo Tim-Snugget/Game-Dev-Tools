@@ -14,11 +14,16 @@ public class DialogueObjectEditorWindow : ExtendedDialogueEditorWindow
 
     private void OnGUI()
     {
+        // serializedObject.Update();
         currentProperty = serializedObject.FindProperty("sentences");
         EditorGUILayout.BeginHorizontal();
         
             EditorGUILayout.BeginVertical("box", GUILayout.MaxWidth(150), GUILayout.ExpandHeight(true));
-                DrawSidebar(currentProperty);
+                DrawCustomSidebar(serializedObject);
+                // DrawSidebar(currentProperty);
+                if (!string.IsNullOrEmpty(selectedPropertyPath))
+                    selectedProperty = serializedObject.FindProperty(selectedPropertyPath);
+
             EditorGUILayout.EndVertical();
         
             EditorGUILayout.BeginVertical("box", GUILayout.ExpandHeight(true));
@@ -30,10 +35,12 @@ public class DialogueObjectEditorWindow : ExtendedDialogueEditorWindow
         
         EditorGUILayout.EndHorizontal();
         
-        GUILayout.FlexibleSpace();
+        // GUILayout.FlexibleSpace();
         
-        if (GUILayout.Button("Save")) {
-            serializedObject.ApplyModifiedProperties();
-        }
+        // if (GUILayout.Button("Save")) {
+        //     serializedObject.ApplyModifiedProperties();
+        // }
+        
+        Repaint();
     }
 }
