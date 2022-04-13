@@ -60,12 +60,6 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
         
         EditorGUILayout.EndHorizontal();
         
-        // GUILayout.FlexibleSpace();
-        
-        // if (GUILayout.Button("Save")) {
-        //     serializedObject.ApplyModifiedProperties();
-        // }
-        
         Repaint();
         serializedObject.ApplyModifiedProperties();
     }
@@ -73,12 +67,10 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
     
     private void SelectItemFromList(ReorderableList l)
     {
-        Debug.Log("current property : " + currentProperty.displayName);
         selectedPropertyPath = currentProperty.GetArrayElementAtIndex(l.index).propertyPath;
 
         if (!string.IsNullOrEmpty(selectedPropertyPath))
             selectedProperty = serializedObject.FindProperty(selectedPropertyPath);
-        Debug.Log("sPP : " + selectedPropertyPath + " | sP : " + selectedProperty);
         Repaint();
     }
 

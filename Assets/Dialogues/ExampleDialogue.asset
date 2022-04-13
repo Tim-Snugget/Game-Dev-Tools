@@ -20,3 +20,9 @@ MonoBehaviour:
     extraOptions:
       displaySpeed: 0
       textSize: 0
+  - speaker: Raoul
+    sentence: "HOLA LES BRAAAAVES !!! JE SUIS LE BARDE L\xC9GENDAIRE DES CONTR\xC9ES
+      D'ARIA !"
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
