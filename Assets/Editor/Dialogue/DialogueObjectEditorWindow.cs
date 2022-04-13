@@ -13,6 +13,12 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
     public static void Open(Dialogue dialogueObject)
     {
         DialogueObjectEditorWindow window = GetWindow<DialogueObjectEditorWindow>("Dialogue Window Editor");
+        // DialogueObjectEditorWindow window = GetWindowWithRect<DialogueObjectEditorWindow>(new Rect(Vector2.zero, new Vector2(Screen.width / 2, Screen.height)), false, "Dialogue Window Editor");
+
+        // DialogueObjectEditorWindow window = 
+        //     GetWindowWithRect<DialogueObjectEditorWindow>(
+        //         new Rect(0, 0, Screen.currentResolution.width / 2, Screen.currentResolution.height), 
+        //         false, "Dialogue Editor Window");
         window.serializedObject = new SerializedObject(dialogueObject);
     }
 
@@ -23,13 +29,14 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
             true, true, true, true);
 
         list.drawHeaderCallback = rect => EditorGUI.LabelField(rect, "Dialogue's order");
-        // list.drawElementCallback = (rect, index, active, focused) =>
-        // {
-        //     var element = list.serializedProperty.GetArrayElementAtIndex(index);
-        //     rect.y += 2;
-        //     EditorGUI.PropertyField(new Rect(rect.x, rect.y, 60, EditorGUIUtility.singleLineHeight),
-        //         element.FindPropertyRelative("Name"), GUIContent.none);
-        // };
+        list.drawElementCallback = (rect, index, active, focused) =>
+        {
+            var element = list.serializedProperty.GetArrayElementAtIndex(index);
+            rect.y += 2;
+            EditorGUI.LabelField(new Rect(rect.x, rect.y, 60, EditorGUIUtility.singleLineHeight),
+                new GUIContent(element.FindPropertyRelative("speaker").stringValue), GUIContent.none);
+            EditorGUIUtility.editingTextField = false;
+        };
         list.onSelectCallback += SelectItemFromList;
 
         if (!string.IsNullOrEmpty(selectedPropertyPath))
