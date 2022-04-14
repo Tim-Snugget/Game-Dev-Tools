@@ -20,8 +20,14 @@ public class ExtendedEditorWindow : EditorWindow
         if (prop.propertyType == SerializedPropertyType.Generic) {
             foreach (SerializedProperty p in prop) {
                 // if the property is an array, opens and unfolds it and its children
-                Debug.Log(">>> p is " + p.displayName + " <<<");
+                Debug.Log("Prop " + p.displayName + " is of type " + p.propertyType);
+                if (p.propertyType == SerializedPropertyType.Integer)
+                    Debug.Log("~~~~ " + p.displayName + " is equal to " + p.intValue);
+                if (p.propertyType == SerializedPropertyType.Float)
+                    Debug.Log("~~~~ " + p.displayName + " is equal to " + p.floatValue);
+
                 if (p.isArray && p.propertyType == SerializedPropertyType.Generic) {
+                    Debug.Log("### " + p.displayName + " is a Generic Array");
                     EditorGUILayout.BeginHorizontal();
                     p.isExpanded = EditorGUILayout.Foldout(p.isExpanded, p.displayName);
                     EditorGUILayout.EndHorizontal();
@@ -32,8 +38,10 @@ public class ExtendedEditorWindow : EditorWindow
                         EditorGUI.indentLevel--;
                     }
                 } else {
-                    if (!string.IsNullOrEmpty(lastPropPath) && p.propertyPath.Contains(lastPropPath))
+                    if (!string.IsNullOrEmpty(lastPropPath) && p.propertyPath.Contains(lastPropPath)) {
+                        Debug.Log("we CONTINUE with lastPropPath == " + lastPropPath);
                         continue;
+                    }
                     lastPropPath = p.propertyPath;
                     EditorGUILayout.PropertyField(p, drawChildren);
                 }
@@ -43,7 +51,7 @@ public class ExtendedEditorWindow : EditorWindow
                 return;
             lastPropPath = prop.propertyPath;
             EditorGUILayout.PropertyField(prop, drawChildren);
-            Debug.Log("default draw");
+            Debug.Log("here");
         }
     }
 

@@ -599,14 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 0}
-  dialogue:
-    sentences:
-    - talker: Raoul
-      sentence: Hola !! Je suis le plus grand barde du monde !!!
-    - talker: "\xC9vy"
-      sentence: "Je fais p\xE9ter des soleils sur mon temps libre ..."
-    - talker: Mimolin
-      sentence: "Besoin d'un petit coup de serpill\xE8re ?"
+  dialogue: {fileID: 11400000, guid: 7949f9aea6a220142a0c3378e5b51fa5, type: 2}
 --- !u!114 &598989342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,6 +1299,7 @@ MonoBehaviour:
   dialogueName: {fileID: 239806469}
   dialogueText: {fileID: 125332842}
   dialogueBoxAnimator: {fileID: 2134066711}
+  tacticalFloat: 0.1
 --- !u!4 &2004036632
 Transform:
   m_ObjectHideFlags: 0

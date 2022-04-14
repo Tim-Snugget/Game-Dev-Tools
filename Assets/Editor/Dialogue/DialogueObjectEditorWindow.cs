@@ -15,7 +15,6 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
     public static void Open(Dialogue dialogueObject)
     {
         DialogueObjectEditorWindow window = GetWindow<DialogueObjectEditorWindow>("Dialogue Window Editor");
-        // DialogueObjectEditorWindow window = GetWindowWithRect<DialogueObjectEditorWindow>(new Rect(Vector2.zero, new Vector2(Screen.width / 2, Screen.height)), false, "Dialogue Window Editor");
 
         // DialogueObjectEditorWindow window = 
         //     GetWindowWithRect<DialogueObjectEditorWindow>(
@@ -23,6 +22,7 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
         //         false, "Dialogue Editor Window");
         window.serializedObject = new SerializedObject(dialogueObject);
     }
+    
 
     // Draws my contextual Sidebar instead of the one implemented in the Extended parent class
     private void DrawSidebar()
@@ -62,6 +62,8 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
     }
 
 
+    #region listMethods
+    
     private void PrepareList()
     {
         list = new ReorderableList(serializedObject, serializedObject.FindProperty("sentences"),
@@ -73,10 +75,8 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
             rect.y += 2;
             EditorGUI.LabelField(new Rect(rect.x, rect.y, 60, EditorGUIUtility.singleLineHeight),
                 new GUIContent(element.FindPropertyRelative("speaker").stringValue), GUIContent.none);
-            // EditorGUIUtility.editingTextField = false;
         };
         list.onAddCallback = AddItemToList;
-        // list.onRemoveCallback += RemoveItemFromList;
         list.onRemoveCallback = RemoveItemFromList;
         list.onSelectCallback = SelectItemFromList;
         
@@ -101,7 +101,9 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
         var element = l.serializedProperty.GetArrayElementAtIndex(index);
         element.FindPropertyRelative("speaker").stringValue = string.Empty;
         element.FindPropertyRelative("sentence").stringValue = string.Empty;
-        element.FindPropertyRelative("extraOptions").objectReferenceValue = new Object();
+        
+        // Sentence.ExtraOptions extraOptions = new Sentence.ExtraOptions();
+        // element.FindPropertyRelative("extraOptions").objectReferenceValue = extraOptions as GameObject;
         SelectItemFromList(l);
     }
 
@@ -114,4 +116,6 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
             SelectItemFromList(l);
         }
     }
+    
+    #endregion // listMethods
 }
