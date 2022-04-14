@@ -18,11 +18,16 @@ MonoBehaviour:
     sentence: "Bonjour, je suis une disciple de Luminis. Mon but est de d\xE9truire
       toutes les \xE9toiles de l'univers afin de mettre fin \xE0 ce monde !"
     extraOptions:
-      displaySpeed: 0
-      textSize: 0
+      displaySpeed: 1.212
+      textSize: 11
   - speaker: Raoul
     sentence: "HOLA LES BRAAAAVES !!! JE SUIS LE BARDE L\xC9GENDAIRE DES CONTR\xC9ES
       D'ARIA !"
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
+  - speaker: 
+    sentence: 
     extraOptions:
       displaySpeed: 0
       textSize: 0

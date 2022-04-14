@@ -43,6 +43,7 @@ public class ExtendedEditorWindow : EditorWindow
                 return;
             lastPropPath = prop.propertyPath;
             EditorGUILayout.PropertyField(prop, drawChildren);
+            Debug.Log("default draw");
         }
     }
 

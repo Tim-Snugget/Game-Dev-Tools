@@ -6,7 +6,7 @@ public class Sentence
     [System.Serializable]
     public class ExtraOptions
     {
-        [Range(0, 5)]
+        [Range(1, 5)]
         public float displaySpeed = 1f;
         [Range(10, 20)]
         public int textSize = 14;

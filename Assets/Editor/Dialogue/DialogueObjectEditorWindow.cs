@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
+using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 public class DialogueObjectEditorWindow : ExtendedEditorWindow
 {
-    private ReorderableList list;
+    private ReorderableList list = null;
     
     
     public static void Open(Dialogue dialogueObject)
@@ -25,20 +27,9 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
     // Draws my contextual Sidebar instead of the one implemented in the Extended parent class
     private void DrawSidebar()
     {
-        list = new ReorderableList(serializedObject, serializedObject.FindProperty("sentences"),
-            true, true, true, true);
-
-        list.drawHeaderCallback = rect => EditorGUI.LabelField(rect, "Dialogue's order");
-        list.drawElementCallback = (rect, index, active, focused) =>
-        {
-            var element = list.serializedProperty.GetArrayElementAtIndex(index);
-            rect.y += 2;
-            EditorGUI.LabelField(new Rect(rect.x, rect.y, 60, EditorGUIUtility.singleLineHeight),
-                new GUIContent(element.FindPropertyRelative("speaker").stringValue), GUIContent.none);
-            EditorGUIUtility.editingTextField = false;
-        };
-        list.onSelectCallback += SelectItemFromList;
-
+        if (list == null)
+            PrepareList();
+        
         if (!string.IsNullOrEmpty(selectedPropertyPath))
             selectedProperty = serializedObject.FindProperty(selectedPropertyPath);
 
@@ -51,7 +42,7 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
         currentProperty = serializedObject.FindProperty("sentences");
         EditorGUILayout.BeginHorizontal();
         
-            EditorGUILayout.BeginVertical("box", GUILayout.MaxWidth(150), GUILayout.ExpandHeight(true));
+            EditorGUILayout.BeginVertical("box", GUILayout.MaxWidth(200), GUILayout.ExpandHeight(true));
                 DrawSidebar();
                 if (!string.IsNullOrEmpty(selectedPropertyPath))
                     selectedProperty = serializedObject.FindProperty(selectedPropertyPath);
@@ -66,11 +57,31 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
             EditorGUILayout.EndVertical();
         
         EditorGUILayout.EndHorizontal();
-        
-        Repaint();
+
         serializedObject.ApplyModifiedProperties();
     }
 
+
+    private void PrepareList()
+    {
+        list = new ReorderableList(serializedObject, serializedObject.FindProperty("sentences"),
+            true, true, true, true);
+        list.drawHeaderCallback = rect => EditorGUI.LabelField(rect, "Dialogue's order");
+        list.drawElementCallback = (rect, index, active, focused) =>
+        {
+            var element = list.serializedProperty.GetArrayElementAtIndex(index);
+            rect.y += 2;
+            EditorGUI.LabelField(new Rect(rect.x, rect.y, 60, EditorGUIUtility.singleLineHeight),
+                new GUIContent(element.FindPropertyRelative("speaker").stringValue), GUIContent.none);
+            // EditorGUIUtility.editingTextField = false;
+        };
+        list.onAddCallback = AddItemToList;
+        // list.onRemoveCallback += RemoveItemFromList;
+        list.onRemoveCallback = RemoveItemFromList;
+        list.onSelectCallback = SelectItemFromList;
+        
+        list.DoLayoutList();
+    }
     
     private void SelectItemFromList(ReorderableList l)
     {
@@ -78,7 +89,29 @@ public class DialogueObjectEditorWindow : ExtendedEditorWindow
 
         if (!string.IsNullOrEmpty(selectedPropertyPath))
             selectedProperty = serializedObject.FindProperty(selectedPropertyPath);
-        Repaint();
     }
 
+
+
+    private void AddItemToList(ReorderableList l)
+    {
+        var index = l.serializedProperty.arraySize;
+        l.serializedProperty.arraySize++;
+        l.index = index;
+        var element = l.serializedProperty.GetArrayElementAtIndex(index);
+        element.FindPropertyRelative("speaker").stringValue = string.Empty;
+        element.FindPropertyRelative("sentence").stringValue = string.Empty;
+        element.FindPropertyRelative("extraOptions").objectReferenceValue = new Object();
+        SelectItemFromList(l);
+    }
+
+
+    private void RemoveItemFromList(ReorderableList l)
+    {
+        if (EditorUtility.DisplayDialog("Warning!",
+                "Are you sure you want to delete the dialogue?", "Yes", "No")) {
+            ReorderableList.defaultBehaviours.DoRemoveButton(l);
+            SelectItemFromList(l);
+        }
+    }
 }
