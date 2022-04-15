@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54a842fe37cafb944af92233bfed4ff4, type: 3}
+  m_Name: secondDialogue
+  m_EditorClassIdentifier: 
+  resume: 
+  sentences:
+  - speaker: Scooby-Doo
+    sentence: RWEEEEHEHEHEHEH
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
+  choiceSelection: 0
+  firstChoice: 
+  secondChoice: 
+  thirdChoice: 
+  fourthChoice: 
+  firstChoiceObject: {fileID: 0}
+  secondChoiceObject: {fileID: 0}
+  thirdChoiceObject: {fileID: 0}
+  fourthChoiceObject: {fileID: 0}

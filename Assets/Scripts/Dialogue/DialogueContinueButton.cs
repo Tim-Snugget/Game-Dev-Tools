@@ -29,10 +29,4 @@ public class DialogueContinueButton : MonoBehaviour
     {
         continueBtn.onClick.RemoveListener(dialogueManager.DisplayNextSentence);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -15,8 +15,8 @@ MonoBehaviour:
   resume: 
   sentences:
   - speaker: Raoul
-    sentence: "HOLA LES BRAAAAVES !!! JE SUIS LE BARDE L\xC9GENDAIRE DES CONTR\xC9ES
-      D'ARIA !"
+    sentence: "HOLA LES BRAAAAVES !!! \nJE SUIS LE BARDE L\xC9GENDAIRE DES CONTR\xC9ES
+      D'ARIA !\nComment allez vous mes amis ?"
     extraOptions:
       displaySpeed: 1
       textSize: 57
@@ -24,5 +24,14 @@ MonoBehaviour:
     sentence: "Bonjour, je suis une disciple de Luminis. Mon but est de d\xE9truire
       toutes les \xE9toiles de l'univers afin de mettre fin \xE0 ce monde !"
     extraOptions:
-      displaySpeed: 4.71
+      displaySpeed: 1
       textSize: 50
+  choiceSelection: 1
+  firstChoice: This is first choice!
+  secondChoice: This is the second choice
+  thirdChoice: 
+  fourthChoice: 
+  firstChoiceObject: {fileID: 11400000, guid: e1723a3f667ab754f8875298de36af77, type: 2}
+  secondChoiceObject: {fileID: 11400000, guid: 819a0b4f7583a724c803b8ff5a7df516, type: 2}
+  thirdChoiceObject: {fileID: 0}
+  fourthChoiceObject: {fileID: 0}
