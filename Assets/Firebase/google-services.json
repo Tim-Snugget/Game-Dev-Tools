@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1085252385238",
+    "project_id": "game-dev-tools",
+    "storage_bucket": "game-dev-tools.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085252385238:android:459b048d934a9a88830c77",
+        "android_client_info": {
+          "package_name": "com.foulcan.GameDevTools"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085252385238-falk3eb96umomia3tnnjsh7h5r72665d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHo-Yr-trke5tRVkRxtYLwyz4unoDK_ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085252385238-falk3eb96umomia3tnnjsh7h5r72665d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
