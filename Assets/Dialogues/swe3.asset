@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 934b7c2570dd32f45a3bad92a02b5615, type: 3}
+  m_Name: swe3
+  m_EditorClassIdentifier: 
+  resume: 
+  sentences:
+  - speaker: obiwan
+    sentence: hello there
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
+  - speaker: grievious
+    sentence: general kenobi
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
+  choiceSelection: 1
+  firstChoice: KENOBI
+  secondChoice: GRIEVIOUS
+  thirdChoice: 
+  fourthChoice: 
+  firstChoiceObject: {fileID: 11400000, guid: 1b1e3f895b9622a4dbad6f3afaa3d3e8, type: 2}
+  secondChoiceObject: {fileID: 11400000, guid: 7719464b170a3b04d8d9d68ac89a9909, type: 2}
+  thirdChoiceObject: {fileID: 0}
+  fourthChoiceObject: {fileID: 0}

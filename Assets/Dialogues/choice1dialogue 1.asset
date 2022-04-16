@@ -9,13 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a842fe37cafb944af92233bfed4ff4, type: 3}
-  m_Name: secondDialogue
+  m_Script: {fileID: 11500000, guid: 934b7c2570dd32f45a3bad92a02b5615, type: 3}
+  m_Name: choice1dialogue 1
   m_EditorClassIdentifier: 
   resume: 
   sentences:
-  - speaker: Scooby-Doo
-    sentence: RWEEEEHEHEHEHEH
+  - speaker: Kenobi
+    sentence: 'fuck you you stoopid dishwasher
+
+'
+    extraOptions:
+      displaySpeed: 0
+      textSize: 0
+  - speaker: grievious
+    sentence: 'gnaahahah
+
+'
     extraOptions:
       displaySpeed: 0
       textSize: 0

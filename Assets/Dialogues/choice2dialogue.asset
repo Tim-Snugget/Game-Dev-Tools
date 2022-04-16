@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54a842fe37cafb944af92233bfed4ff4, type: 3}
-  m_Name: firstDialogue
+  m_Script: {fileID: 11500000, guid: 934b7c2570dd32f45a3bad92a02b5615, type: 3}
+  m_Name: choice2dialogue
   m_EditorClassIdentifier: 
   resume: 
   sentences:
-  - speaker: Gandalf
-    sentence: Congrats, you chose the first dialogue!
+  - speaker: grievious
+    sentence: ez clap ggwp
     extraOptions:
       displaySpeed: 0
       textSize: 0

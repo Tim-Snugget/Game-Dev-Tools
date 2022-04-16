@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class CardEditorWindow : ExtendedCardEditorWindow
+public class CardEditorWindow : ExtendedEditorWindow
 {
     public static void Open(Card card)
     {

@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 0}
-  dialogue: {fileID: 11400000, guid: 7949f9aea6a220142a0c3378e5b51fa5, type: 2}
+  dialogue: {fileID: 11400000, guid: 04463ab7e25813e47939cc34e401a5cc, type: 2}
 --- !u!114 &598989342
 MonoBehaviour:
   m_ObjectHideFlags: 0
