@@ -9,26 +9,15 @@ using Object = UnityEngine.Object;
 
 public class DialogueObjectEditorWindow : ExtendedEditorWindow
 {
-    // private const string twoChoiceAssetPath = "Assets/DialoguePrefab/TwoChoicesPrefab.prefab";
     private ReorderableList list = null;
     private readonly string [] options = { "0", "2", "3", "4" };
     private enum CHOICE : int {NONE, TWO_CHOICES, THREE_CHOICES, FOUR_CHOICES};
-    // private int choiceSelection = 0;
-    // private string firstChoice, secondChoice, thirdChoice, fourthChoice;
-    // private Dialogue firstChoiceObject, secondChoiceObject, thirdChoiceObject, fourthChoiceObject;
-    
-    
     public static void Open(Dialogue dialogueObject)
     {
         DialogueObjectEditorWindow window = GetWindow<DialogueObjectEditorWindow>("Dialogue Window Editor");
 
-        // DialogueObjectEditorWindow window = 
-        //     GetWindowWithRect<DialogueObjectEditorWindow>(
-        //         new Rect(0, 0, Screen.currentResolution.width / 2, Screen.currentResolution.height), 
-        //         false, "Dialogue Editor Window");
         window.serializedObject = new SerializedObject(dialogueObject);
     }
-    
 
     // Draws my contextual Sidebar instead of the one implemented in the Extended parent class
     private void DrawSidebar()
