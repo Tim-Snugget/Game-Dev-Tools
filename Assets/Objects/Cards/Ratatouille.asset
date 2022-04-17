@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Ratatouille
   cardDescription: Ratatouilator
-  cardArtworks: {fileID: 21300000, guid: 25e9673fd238d914388b28e2b6e0f4f8, type: 3}
-  cardTemplate: {fileID: 21300000, guid: 24a584050ef341242be6195d1420aa6a, type: 3}
+  cardArtworks: {fileID: 21300000, guid: 76b5160cf103a914cb9bb97da70174f2, type: 3}
+  cardTemplate: {fileID: 21300000, guid: 942ee489d14bc624684189c98d19831c, type: 3}
   cardCost: 10
   cardHealth: 1
   cardDamage: 999999
