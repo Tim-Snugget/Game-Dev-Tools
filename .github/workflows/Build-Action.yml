@@ -76,5 +76,5 @@ jobs:
           appId: ${{ secrets.FIREBASE_APP_ID }}
           token: ${{ secrets.GCLOUD_TOKEN }}
           groups: test-team
-          file: 'build/game-dev-tools.apk'
+          file: 'build/Android/game-dev-tools.apk'
     
