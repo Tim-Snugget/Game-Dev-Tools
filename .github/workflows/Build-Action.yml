@@ -62,6 +62,12 @@ jobs:
           androidKeyaliasName: ${{ secrets.ANDROID_KEYALIAS_NAME }}
           androidKeyaliasPass: ${{ secrets.ANDROID_KEYALIAS_PASS }}
           
+      # Output
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build
+          path: build
+      
       # Deploy on Firebase
       - name: Upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
@@ -72,8 +78,3 @@ jobs:
           groups: test-team
           file: 'build/game-dev-tools.apk'
     
-      # Output
-      - uses: actions/upload-artifact@v2
-        with:
-          name: Build
-          path: build
