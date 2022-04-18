@@ -6,6 +6,7 @@ jobs:
   build:
     name: Build my project ✨
     runs-on: ubuntu-latest
+
     steps:
       # Checkout (without LFS)
       - name: Checkout repository
@@ -53,7 +54,17 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: Android
+          buildName: 'game-dev-tools.apk'
 
+      # Deploy on Firebase
+      - name: Upload artifact to Firebase App Distribution
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{ secrets.FIREBASE_APP_ID }}
+          token: ${{ secrets.GCLOUD_TOKEN }}
+          groups: test-team
+          file: 'build/game-dev-tools.apk'
+    
       # Output
       - uses: actions/upload-artifact@v2
         with:
